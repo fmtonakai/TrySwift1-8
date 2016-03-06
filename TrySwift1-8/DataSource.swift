@@ -10,10 +10,14 @@ import UIKit
 
 class DataSource: NSObject, UITableViewDataSource, SourceType {
 
-    var dataObject: DataType = Hand()
+    var dataObject: DataType
 
     var conditionForAdding: Bool {
-        return dataObject.numberOfItems < 5
+        return false
+    }
+
+    init<A: DataType>(dataObject: A) {
+        self.dataObject = dataObject
     }
 
     // MARK: - Table view data source
@@ -23,15 +27,9 @@ class DataSource: NSObject, UITableViewDataSource, SourceType {
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CardCell,
-        hand = dataObject as? Hand else {
-            fatalError("Could not create CardCell or Hand instance")
-        }
-        cell.fillWith(hand[indexPath.row])
-        return cell
+        fatalError("This method must be overriden")
     }
 
-    // Override to support editing the table view.
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             dataObject = dataObject.deleteItemAtIndex(indexPath.row)
@@ -39,7 +37,6 @@ class DataSource: NSObject, UITableViewDataSource, SourceType {
         }
     }
 
-    // Override to support rearranging the table view.
     func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
         dataObject = dataObject.moveItem(fromIndexPath.row, toIndex: toIndexPath.row)
     }
