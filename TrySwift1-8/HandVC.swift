@@ -10,53 +10,16 @@ import UIKit
 
 class HandVC: UITableViewController {
 
-    private var hand = Hand()
+    private var dataSource = DataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = dataSource
         navigationItem.leftBarButtonItem = editButtonItem()
     }
 
     @IBAction private func addNewCard(sender: UIBarButtonItem) {
-        if hand.numberOfCards < 5 {
-            hand = hand.addNewCardAtIndex(0)
-            insertTopRow()
-        }
-    }
-
-    private func insertTopRow() {
-        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: .Fade)
-    }
-
-    // MARK: - Table view data source
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return hand.numberOfCards
-    }
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CardCell else {
-            fatalError("Could not create CardCell")
-        }
-        cell.fillWith(hand[indexPath.row])
-        return cell
-    }
-
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            hand = hand.deleteCardAtIndex(indexPath.row)
-            deleteRowAtIndexPath(indexPath)
-        }
-    }
-
-    private func deleteRowAtIndexPath(indexPath: NSIndexPath) {
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    }
-
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-        hand = hand.moveCard(fromIndexPath.row, toIndex: toIndexPath.row)
+        dataSource.addItemTo(tableView)
     }
 
 }
