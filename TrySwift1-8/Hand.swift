@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Hand {
+struct Hand {
     private let deck = Deck()
     private var cards: [Card] = []
 
@@ -20,19 +20,19 @@ class Hand {
         return cards[index]
     }
 
-    func addNewCardAtIndex(index: Int) {
+    mutating func addNewCardAtIndex(index: Int) {
         insertCard(deck.nextCard(), atIndex: index)
     }
 
-    private func insertCard(card: Card, atIndex index: Int) {
+    private mutating func insertCard(card: Card, atIndex index: Int) {
         cards.insert(card, atIndex: index)
     }
 
-    func deleteCardAtIndex(index: Int) {
+    mutating func deleteCardAtIndex(index: Int) {
         cards.removeAtIndex(index)
     }
 
-    func moveCard(fromIndex: Int, toIndex: Int) {
+    mutating func moveCard(fromIndex: Int, toIndex: Int) {
         let cardToMove = cards[fromIndex]
         deleteCardAtIndex(fromIndex)
         insertCard(cardToMove, atIndex: toIndex)

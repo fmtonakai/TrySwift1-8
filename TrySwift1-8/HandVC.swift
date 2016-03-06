@@ -10,7 +10,7 @@ import UIKit
 
 class HandVC: UITableViewController {
 
-    private let hand = Hand()
+    private var hand = Hand()
 
     override func viewDidLoad() {
         super.viewDidLoad()

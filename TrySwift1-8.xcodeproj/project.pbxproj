@@ -83,8 +83,8 @@
 			children = (
 				9563471F1C8C13EC00378230 /* AppDelegate.swift */,
 				9563473F1C8C146C00378230 /* HandVC.swift */,
-				956347431C8C150100378230 /* Card.swift */,
 				956347451C8C16FA00378230 /* Hand.swift */,
+				956347431C8C150100378230 /* Card.swift */,
 				956347231C8C13EC00378230 /* Main.storyboard */,
 				956347261C8C13EC00378230 /* Assets.xcassets */,
 				956347281C8C13EC00378230 /* LaunchScreen.storyboard */,
