@@ -10,24 +10,22 @@ import UIKit
 
 class DataSource: NSObject, UITableViewDataSource, SourceType {
 
-    private var hand = Hand()
-    
-    func addItemTo(tableView: UITableView) {
-        if hand.numberOfItems < 5 {
-            hand = hand.addNewItemAtIndex(0)
-            insertTopRowIn(tableView)
-        }
+    var dataObject: DataType = Hand()
+
+    var conditionForAdding: Bool {
+        return dataObject.numberOfItems < 5
     }
 
     // MARK: - Table view data source
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return hand.numberOfItems
+        return dataObject.numberOfItems
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CardCell else {
-            fatalError("Could not create CardCell")
+        guard let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CardCell,
+        hand = dataObject as? Hand else {
+            fatalError("Could not create CardCell or Hand instance")
         }
         cell.fillWith(hand[indexPath.row])
         return cell
@@ -36,14 +34,14 @@ class DataSource: NSObject, UITableViewDataSource, SourceType {
     // Override to support editing the table view.
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            hand = hand.deleteItemAtIndex(indexPath.row)
+            dataObject = dataObject.deleteItemAtIndex(indexPath.row)
             deleteRowAtIndexPath(indexPath, from: tableView)
         }
     }
 
     // Override to support rearranging the table view.
     func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-        hand = hand.moveItem(fromIndexPath.row, toIndex: toIndexPath.row)
+        dataObject = dataObject.moveItem(fromIndexPath.row, toIndex: toIndexPath.row)
     }
 
 }
