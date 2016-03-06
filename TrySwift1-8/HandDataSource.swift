@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HandDataSource: DataSource {
+class HandDataSource: DataSource<Hand> {
 
     init() {
         super.init(dataObject: Hand())
@@ -19,11 +19,10 @@ class HandDataSource: DataSource {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CardCell,
-            hand = dataObject as? Hand else {
-                fatalError("Could not create CardCell or Hand instance")
+        guard let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CardCell else {
+                fatalError("Could not create CardCell")
         }
-        cell.fillWith(hand[indexPath.row])
+        cell.fillWith(dataObject[indexPath.row])
         return cell
     }
 

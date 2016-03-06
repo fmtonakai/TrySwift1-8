@@ -9,14 +9,15 @@
 import UIKit
 
 protocol SourceType: UITableViewDataSource {
+    typealias Data
 
-    var dataObject: DataType { get set }
+    var dataObject: Data { get set }
     var conditionForAdding: Bool { get }
     func insertTopRowIn(tableView: UITableView)
     func deleteRowAtIndexPath(indexPath: NSIndexPath, from tableView: UITableView)
 }
 
-extension SourceType {
+extension SourceType where Data: DataType {
 
     func addItemTo(tableView: UITableView) {
         if conditionForAdding {

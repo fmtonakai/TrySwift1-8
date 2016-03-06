@@ -8,15 +8,15 @@
 
 import UIKit
 
-class DataSource: NSObject, UITableViewDataSource, SourceType {
+class DataSource<A: DataType>: NSObject, UITableViewDataSource, SourceType {
 
-    var dataObject: DataType
+    var dataObject: A
 
     var conditionForAdding: Bool {
         return false
     }
 
-    init<A: DataType>(dataObject: A) {
+    init(dataObject: A) {
         self.dataObject = dataObject
     }
 
