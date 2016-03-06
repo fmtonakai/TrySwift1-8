@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DataSource: NSObject, UITableViewDataSource {
+class DataSource: NSObject, UITableViewDataSource, SourceType {
 
     private var hand = Hand()
     func addItemTo(tableView: UITableView) {
@@ -16,10 +16,6 @@ class DataSource: NSObject, UITableViewDataSource {
             hand = hand.addNewCardAtIndex(0)
             insertTopRowIn(tableView)
         }
-    }
-
-    private func insertTopRowIn(tableView: UITableView) {
-        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: .Fade)
     }
 
     // MARK: - Table view data source
@@ -42,10 +38,6 @@ class DataSource: NSObject, UITableViewDataSource {
             hand = hand.deleteCardAtIndex(indexPath.row)
             deleteRowAtIndexPath(indexPath, from: tableView)
         }
-    }
-
-    private func deleteRowAtIndexPath(indexPath: NSIndexPath, from tableView: UITableView) {
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     }
 
     // Override to support rearranging the table view.

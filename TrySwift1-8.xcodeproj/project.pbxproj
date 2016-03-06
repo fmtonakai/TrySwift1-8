@@ -17,6 +17,7 @@
 		956347461C8C16FA00378230 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956347451C8C16FA00378230 /* Hand.swift */; };
 		956347481C8C233C00378230 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956347471C8C233C00378230 /* CardCell.swift */; };
 		9563474A1C8C26F600378230 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956347491C8C26F600378230 /* DataSource.swift */; };
+		9563474C1C8C2AE200378230 /* SourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9563474B1C8C2AE200378230 /* SourceType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		956347451C8C16FA00378230 /* Hand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 		956347471C8C233C00378230 /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		956347491C8C26F600378230 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		9563474B1C8C2AE200378230 /* SourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				9563471F1C8C13EC00378230 /* AppDelegate.swift */,
 				9563473F1C8C146C00378230 /* HandVC.swift */,
 				956347491C8C26F600378230 /* DataSource.swift */,
+				9563474B1C8C2AE200378230 /* SourceType.swift */,
 				956347451C8C16FA00378230 /* Hand.swift */,
 				956347431C8C150100378230 /* Card.swift */,
 				956347471C8C233C00378230 /* CardCell.swift */,
@@ -212,6 +215,7 @@
 				9563474A1C8C26F600378230 /* DataSource.swift in Sources */,
 				956347481C8C233C00378230 /* CardCell.swift in Sources */,
 				956347461C8C16FA00378230 /* Hand.swift in Sources */,
+				9563474C1C8C2AE200378230 /* SourceType.swift in Sources */,
 				956347201C8C13EC00378230 /* AppDelegate.swift in Sources */,
 				956347401C8C146C00378230 /* HandVC.swift in Sources */,
 				956347441C8C150200378230 /* Card.swift in Sources */,
