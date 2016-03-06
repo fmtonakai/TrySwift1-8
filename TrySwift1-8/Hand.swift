@@ -20,6 +20,10 @@ struct Hand {
         return cards[index]
     }
 
+    subscript(index: Int) -> Card {
+        return cardAtPosition(index)
+    }
+
     func addNewCardAtIndex(index: Int) -> Hand {
         return insertCard(deck.nextCard(), atIndex: index)
     }

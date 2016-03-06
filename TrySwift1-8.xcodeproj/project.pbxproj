@@ -15,6 +15,7 @@
 		956347401C8C146C00378230 /* HandVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9563473F1C8C146C00378230 /* HandVC.swift */; };
 		956347441C8C150200378230 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956347431C8C150100378230 /* Card.swift */; };
 		956347461C8C16FA00378230 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956347451C8C16FA00378230 /* Hand.swift */; };
+		956347481C8C233C00378230 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956347471C8C233C00378230 /* CardCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		9563473F1C8C146C00378230 /* HandVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandVC.swift; sourceTree = "<group>"; };
 		956347431C8C150100378230 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		956347451C8C16FA00378230 /* Hand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
+		956347471C8C233C00378230 /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				9563473F1C8C146C00378230 /* HandVC.swift */,
 				956347451C8C16FA00378230 /* Hand.swift */,
 				956347431C8C150100378230 /* Card.swift */,
+				956347471C8C233C00378230 /* CardCell.swift */,
 				956347231C8C13EC00378230 /* Main.storyboard */,
 				956347261C8C13EC00378230 /* Assets.xcassets */,
 				956347281C8C13EC00378230 /* LaunchScreen.storyboard */,
@@ -203,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				956347481C8C233C00378230 /* CardCell.swift in Sources */,
 				956347461C8C16FA00378230 /* Hand.swift in Sources */,
 				956347201C8C13EC00378230 /* AppDelegate.swift in Sources */,
 				956347401C8C146C00378230 /* HandVC.swift in Sources */,
