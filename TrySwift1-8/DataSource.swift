@@ -11,9 +11,10 @@ import UIKit
 class DataSource: NSObject, UITableViewDataSource, SourceType {
 
     private var hand = Hand()
+    
     func addItemTo(tableView: UITableView) {
-        if hand.numberOfCards < 5 {
-            hand = hand.addNewCardAtIndex(0)
+        if hand.numberOfItems < 5 {
+            hand = hand.addNewItemAtIndex(0)
             insertTopRowIn(tableView)
         }
     }
@@ -21,7 +22,7 @@ class DataSource: NSObject, UITableViewDataSource, SourceType {
     // MARK: - Table view data source
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return hand.numberOfCards
+        return hand.numberOfItems
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -35,14 +36,14 @@ class DataSource: NSObject, UITableViewDataSource, SourceType {
     // Override to support editing the table view.
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            hand = hand.deleteCardAtIndex(indexPath.row)
+            hand = hand.deleteItemAtIndex(indexPath.row)
             deleteRowAtIndexPath(indexPath, from: tableView)
         }
     }
 
     // Override to support rearranging the table view.
     func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-        hand = hand.moveCard(fromIndexPath.row, toIndex: toIndexPath.row)
+        hand = hand.moveItem(fromIndexPath.row, toIndex: toIndexPath.row)
     }
 
 }
