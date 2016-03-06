@@ -9,7 +9,7 @@
 import Foundation
 
 struct Hand {
-    private let deck = Deck()
+    private var deck = Deck()
     private var cards: [Card] = []
 
     var numberOfCards: Int {
@@ -20,21 +20,24 @@ struct Hand {
         return cards[index]
     }
 
-    mutating func addNewCardAtIndex(index: Int) {
-        insertCard(deck.nextCard(), atIndex: index)
+    func addNewCardAtIndex(index: Int) -> Hand {
+        return insertCard(deck.nextCard(), atIndex: index)
     }
 
-    private mutating func insertCard(card: Card, atIndex index: Int) {
-        cards.insert(card, atIndex: index)
+    private func insertCard(card: Card, atIndex index: Int) -> Hand {
+        var mutableCards = cards
+        mutableCards.insert(card, atIndex: index)
+        return Hand(deck: deck, cards: mutableCards)
     }
 
-    mutating func deleteCardAtIndex(index: Int) {
-        cards.removeAtIndex(index)
+    func deleteCardAtIndex(index: Int) -> Hand {
+        var mutableCards = cards
+        mutableCards.removeAtIndex(index)
+        return Hand(deck: deck, cards: mutableCards)
     }
 
-    mutating func moveCard(fromIndex: Int, toIndex: Int) {
-        let cardToMove = cards[fromIndex]
-        deleteCardAtIndex(fromIndex)
-        insertCard(cardToMove, atIndex: toIndex)
+    func moveCard(fromIndex: Int, toIndex: Int) -> Hand {
+        return deleteCardAtIndex(fromIndex)
+            .insertCard(cards[fromIndex], atIndex: toIndex)
     }
 }

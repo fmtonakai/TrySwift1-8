@@ -19,7 +19,7 @@ class HandVC: UITableViewController {
 
     @IBAction private func addNewCard(sender: UIBarButtonItem) {
         if hand.numberOfCards < 5 {
-            hand.addNewCardAtIndex(0)
+            hand = hand.addNewCardAtIndex(0)
             insertTopRow()
         }
     }
@@ -46,7 +46,7 @@ class HandVC: UITableViewController {
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            hand.deleteCardAtIndex(indexPath.row)
+            hand = hand.deleteCardAtIndex(indexPath.row)
             deleteRowAtIndexPath(indexPath)
         }
     }
@@ -59,6 +59,5 @@ class HandVC: UITableViewController {
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
         hand = hand.moveCard(fromIndexPath.row, toIndex: toIndexPath.row)
     }
-    */
 
 }
