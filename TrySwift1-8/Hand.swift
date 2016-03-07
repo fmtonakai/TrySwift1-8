@@ -9,17 +9,9 @@
 import Foundation
 
 struct Hand: DataType {
-    private var deck: Deck
-    private var cards: [Card] = []
-
-    init() {
-        deck = Deck()
-    }
-
-    private init(deck: Deck, cards: [Card]){
-        self.deck = deck
-        self.cards = cards
-    }
+    
+    private let deck: Deck
+    private let cards: [Card]
 
     subscript(index: Int) -> Card {
         return itemAtPosition(index)
@@ -52,5 +44,13 @@ struct Hand: DataType {
     func moveItem(fromIndex: Int, toIndex: Int) -> Hand {
         return deleteItemAtIndex(fromIndex)
             .insertItem(cards[fromIndex], atIndex: toIndex)
+    }
+}
+
+extension Hand {
+
+    init() {
+        deck = Deck()
+        cards = []
     }
 }

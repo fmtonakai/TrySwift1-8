@@ -19,11 +19,14 @@ class HandDataSource: DataSource<Hand> {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CardCell else {
-                fatalError("Could not create CardCell")
-        }
+        let cell = tableView.dequeueReusableCell(CardCellReusable(), forIndexPath: indexPath)
         cell.fillWith(dataObject[indexPath.row])
         return cell
+    }
+
+    private struct CardCellReusable: TableViewCellReusable {
+        let reuseIdentifier = "Cell"
+        typealias CellType = CardCell
     }
 
 }
